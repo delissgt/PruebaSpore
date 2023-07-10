@@ -17,7 +17,6 @@ const SingUp = () => {
     setIsModalOpen(false);
     form.validateFields()
         .then((values) => {
-          console.log("VALUES FORM CREATE USER", values)
           createUser(values);
           form.resetFields();
 
@@ -34,9 +33,7 @@ const SingUp = () => {
         "password": values.password,
         "rol": values.rol
       }
-      console.log("data create user", data)
       const response = await PostApi(`users`, data, "")
-      console.log("RESPONSE CREATE USER", response)
     }catch (e) {
       console.log("Error not created user")
     } finally {
@@ -54,7 +51,7 @@ const SingUp = () => {
       <>
 
         <Button type="link" onClick={showModal}>
-          Link Button open modal form
+          Create Account
         </Button>
 
         <Modal

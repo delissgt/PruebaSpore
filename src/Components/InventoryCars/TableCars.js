@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Table, Space, Button, Row,Col} from "antd";
+import {Table, Space, Button, Row,Col, Popconfirm, message} from "antd";
 import {EditOutlined, DeleteOutlined, PlusOutlined} from "@ant-design/icons";
-import {getApi} from "../../library/helpers/ApiActions";
+import {getApi, DeleteApi} from "../../library/helpers/ApiActions";
 
 import AddCar from "./AddCar";
 
@@ -45,11 +45,38 @@ const TableCars = () => {
       render: (_, record) => (
           <Space size={"middle"}>
             <Button icon={<EditOutlined />} />
-            <Button icon={<DeleteOutlined />} danger />
+            <Popconfirm
+                title={"Borrar"}
+                description={"Esta seguro de borrar este registro?"}
+                onConfirm={()=> confirm(record)}
+                onCancel={cancel}
+                okText={"Yes"}
+                cancelText={"No"}
+            >
+              <Button icon={<DeleteOutlined />} danger ></Button>
+            </Popconfirm>
+
           </Space>
       )
     }
   ];
+
+  const confirm = async (record) => {
+    try {
+      const response = await DeleteApi(`cars/${record.id}/delete`)
+    }catch (e) {
+      message.error("Error no se puede eliminar el registro")
+    } finally {
+      message.success("Registro borrado");
+      getAllCars();
+    }
+
+  }
+
+  const cancel = (e) => {
+    console.log(" cancel e", e)
+    message.error("NO");
+  }
 
   const getAllCars = async () => {
     const url = `/cars`

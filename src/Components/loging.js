@@ -9,67 +9,20 @@ import {getApi, PostApi} from "../library/helpers/ApiActions";
 
 const Login = (props) => {
 
-    console.log("prosps", props)
-
     const onFinish = (values) => {
-
-      console.log("values", values)
       initialiceSession(values);
-
     }
 
     const initialiceSession = async (values) => {
       try {
-        // const response = await getApi(`/recipes`, "")
         const response = await getApi(`user/${values.email}`, "")
-        console.log("response recipes", response)
-        console.log("response recipes DATA", response.data)
-        // save data user login in localStorage
         localStorage.setItem("login-cars-id", response.data.id);
       }catch (e) {
         console.log("ERROR no get recipes")
       }finally {
-        console.log("OK")
-        // save data user login in localStorage
-        // localStorage.setItem("login-cars-id", response.data.data.id);
         props.setStateAuth(true)
       }
 
-    }
-
-    const getUsers = async () => {
-      try {
-        // const response = await getApi(`/recipes`, "")
-        const response = await getApi(`users`, "")
-        console.log("users", response)
-        console.log("response users DATA", response.data)
-      }catch (e) {
-        console.log("ERROR no get users")
-      }finally {
-        console.log("OK")
-        props.setStateAuth(true)
-      }
-
-    }
-
-    const addCar = async () => {
-      try{
-        const data = {
-          "license_plate": "456",
-          "mark": "my mark 2",
-          "color": "red",
-          "model": "my_model 3",
-          "location_lat": "555",
-          "location_lng": "777",
-        }
-        const response = await PostApi(`/cars`, data, "")
-        console.log("response", response)
-      } catch (e) {
-        console.log("ERROR no created car")
-      } finally {
-        console.log("OK")
-        console.log("RESPONSE OK")
-      }
     }
 
 
@@ -122,8 +75,6 @@ const Login = (props) => {
                 </Col>
             
             </Row>
-          <Button onClick={addCar}>aadd car</Button>
-          <Button onClick={getUsers}>all users</Button>
         </>
     )
 

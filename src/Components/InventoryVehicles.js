@@ -5,12 +5,19 @@ import { Layout, Row, Col, Button } from "antd";
 import {LogoutOutlined} from "@ant-design/icons";
 const {Header, Footer, Content} = Layout;
 
-const InventoryVehicles = () => {
+const InventoryVehicles = ({setStateAuth}) => {
+
+    const logOut = () => {
+        localStorage.removeItem("login-cars-id")
+        setStateAuth(false)
+    }
+
+
     return (
         <>
         <Layout>
             <Header>
-                <Button icon={<LogoutOutlined />}>Logout</Button>
+                <Button icon={<LogoutOutlined />} onClick={logOut}>Logout</Button>
             </Header>
             <Content>
                 <Row>

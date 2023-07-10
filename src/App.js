@@ -19,7 +19,7 @@ function App() {
   if (stateAuth) {
     return (
       <div>
-        <InventoryVehicles/>
+        <InventoryVehicles setStateAuth={setStateAuth}/>
       </div>
 
       )
