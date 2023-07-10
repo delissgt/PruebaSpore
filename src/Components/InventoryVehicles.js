@@ -1,5 +1,5 @@
 import React from "react";
-import TableCars from "./TableCars";
+import TableCars from "./InventoryCars/TableCars";
 import Maps from "./Map/Map";
 import { Layout, Row, Col, Button } from "antd";
 import {LogoutOutlined} from "@ant-design/icons";

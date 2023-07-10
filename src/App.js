@@ -7,13 +7,11 @@ import {useEffect, useState} from 'react';
 function App() {
   const [stateAuth, setStateAuth] = useState(false);
 
-  // console.log("localStorage values", localStorage.getItem("login-cars"))
-
 
 
   useEffect(()=>{
-    // localStorage.getItem("login-cars")
-    if (localStorage.getItem("login-cars")) {
+
+    if (localStorage.getItem("login-cars-id")) {
       setStateAuth(true)
     }
   })
