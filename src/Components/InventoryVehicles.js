@@ -1,7 +1,8 @@
 import React from "react";
 import TableCars from "./TableCars";
 import Maps from "./Map/Map";
-import { Layout, Space, Row, Col } from "antd";
+import { Layout, Row, Col, Button } from "antd";
+import {LogoutOutlined} from "@ant-design/icons";
 const {Header, Footer, Content} = Layout;
 
 const InventoryVehicles = () => {
@@ -9,7 +10,7 @@ const InventoryVehicles = () => {
         <>
         <Layout>
             <Header>
-                header
+                <Button icon={<LogoutOutlined />}>Logout</Button>
             </Header>
             <Content>
                 <Row>

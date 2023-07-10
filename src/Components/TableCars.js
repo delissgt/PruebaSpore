@@ -40,7 +40,7 @@ const TableCars = () => {
       key: 'action',
       render: (_, record) => (
           <Space size={"middle"}>
-            <a>Invite {record.name}</a>
+            <a href={"#"}>Invite {record.name}</a>
             <Button icon={<EditOutlined />} />
             <Button icon={<DeleteOutlined />} danger />
           </Space>
@@ -52,8 +52,8 @@ const TableCars = () => {
   return(
       <>
         <Row justify="end">
-          <Col span={2}>
-            <Button icon={<PlusOutlined />} type={"primary"}/>
+          <Col>
+            <Button icon={<PlusOutlined />} type={"primary"}>Add Car</Button>
           </Col>
 
         </Row>
