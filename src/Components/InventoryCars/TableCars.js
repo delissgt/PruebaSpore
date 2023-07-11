@@ -53,7 +53,7 @@ const TableCars = () => {
                 okText={"Yes"}
                 cancelText={"No"}
             >
-              <Button icon={<DeleteOutlined />} danger ></Button>
+              <Button icon={<DeleteOutlined/>} danger />
             </Popconfirm>
 
           </Space>
